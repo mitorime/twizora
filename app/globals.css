@@ -80,13 +80,14 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .main {
-  padding: 12px 12px 64px;
+  padding: 0px 12px 64px;
   display: flex;
   justify-content: center;
 }
 
 .screen {
   max-width: 600px; /* 本家は 598 px ? っぽいけど */
+  width: 100%;
 }
 
 .search-field {
@@ -120,14 +121,17 @@ input[type="range"]::-moz-range-thumb {
 }
 
 .choose-book-wrap {
+  padding: 8px;
   display: flex;
   gap: 8px;
   justify-content: flex-start;
   align-items: flex-start;
   flex-flow: row nowrap;
-  height: 40px;
   font-size: 13px;
   cursor: pointer;
+}
+.choose-book-wrap:hover {
+  background-color: var(--field);
 }
 
 .display-name {

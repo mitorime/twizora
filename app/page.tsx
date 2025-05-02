@@ -81,7 +81,7 @@ export default function Home() {
   return (
     <main className='main'>
     <div className='screen'>
-      <h1>青空文庫を Twitter っぽく表示するやつ</h1>
+      <h1 style={{padding: '12px 0' }}>青空文庫を Twitter っぽく表示するやつ</h1>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '1rem', padding: '8px 4px' }}>
         <input
           type="text"
@@ -105,7 +105,7 @@ export default function Home() {
             検索結果がありません。ほかのキーワードを試してみてください。
           </div>
         ) : (
-          <div style={{ display: 'flex', flexFlow: 'column', gap: '24px', marginBottom: '2rem' }}>
+          <div style={{ display: 'flex', flexFlow: 'column', gap: '8px', marginBottom: '2rem' }}>
             {searchResults.map((result, index) => (
               <div key={index}>
                 <div
@@ -156,7 +156,7 @@ export default function Home() {
         </div>
       )}
       {showTweets && (
-      <div style={{ marginTop: '2rem', fontSize: `${textSizeList[size]}px` }}>
+      <div style={{ marginTop: '2rem', fontSize: `${textSizeList[size]}px`, width: '100%' }}>
         {textChunks.map((chunk, idx) => (
           <React.Fragment key={idx}>
             <div style={{ display: 'flex', alignItems: 'stretch', gap: '8px', marginBottom: '4px' }}>
@@ -174,13 +174,13 @@ export default function Home() {
                 </div>
               )}
             </div>
-            <div style={{ whiteSpace: 'pre-wrap', marginTop: '-4px' }}>
+            <div style={{ whiteSpace: 'pre-wrap', marginTop: '-4px', width: '100%'}}>
               <div>
                <span className='display-name'>{titleShorten}&nbsp;</span>
                {showUserName && <span className='user-name'>@{authorRomaji}</span>}
                <span className='user-name'> ･ {date}</span>
               </div>
-              {chunk}
+               <div style={{ wordBreak: 'break-all' }}>{chunk}</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', height: '40px' }}>
                 {[1, 2, 3, 4, 5, 6].map((n) => (
                   <Image
