@@ -1,20 +1,11 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from "next"
+import "./globals.css"
 
 export const metadata: Metadata = {
   title: '青空文庫をTwitterっぽく表示するやつ',
   description: '青空文庫の作品をTwitterのスレッド風に表示する非公式ビューア。ツイ廃向け。',
+  manifest: '/manifest.json',
+  icons: '/icon-192.png',
   openGraph: {
     title: '青空文庫をTwitterっぽく表示するやつ',
     description: '青空文庫の作品をTwitterのスレッド風に表示する非公式ビューア。ツイ廃向け。',
@@ -37,7 +28,7 @@ export const metadata: Metadata = {
     description: '青空文庫の作品をTwitterのスレッド風に表示する非公式ビューア。ツイ廃向け。',
     images: ['https://lh3.googleusercontent.com/pw/AP1GczOgYDPBofbDogGE0NXKrpiO8vlC64WNQmoPN4EuDF-OZpkudiPnorfEGdSZBxz1g2Fith4_ArOEAAHWJegfkfX102MyYyqF9Ntfjt7my-xT3cgs_4VtylpgB02MfKDgYaAG_SoszlKmlYwiVbpALkRn=w1200-h630-s-no'],
   },
-};
+}
 
 export default function RootLayout({
   children,
@@ -45,10 +36,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="ja">
+      <body>
         {children}
       </body>
     </html>
-  );
+  )
 }

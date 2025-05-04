@@ -6,6 +6,7 @@ import Image from 'next/image'
 export default function Home() {
   const [titleShorten, setTitleShorten] = useState('')
   const [showUserName, setShowUserName] = useState(false)
+  const [author, setAuthor] = useState('')
   const [authorRomaji, setAuthorRomaji] = useState('')
   const [date, setDate] = useState('')
   const [textChunks, setTextChunks] = useState<string[]>([])
@@ -72,6 +73,7 @@ export default function Home() {
       setTitleShorten(data.title)
       setShowUserName(true)
     }
+    setAuthor(data.author)
     setAuthorRomaji(data.authorRomaji.replace(/[ ,=.']/g, '').slice(0, 11))
     setDate(data.date)
     setWaitForLoading(false)
@@ -81,7 +83,8 @@ export default function Home() {
   return (
     <main className='main'>
     <div className='screen'>
-      <h1 style={{padding: '12px 0' }}>青空文庫を Twitter っぽく表示するやつ</h1>
+      <h1 style={{padding: '12px 0 0' }}>twizora</h1>
+      <p className='user-name' style={{padding: '0 0 12px' }}>青空文庫を Twitter っぽく表示するやつ</p>
       <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: '1rem', padding: '8px 4px' }}>
         <input
           type="text"
@@ -182,7 +185,12 @@ export default function Home() {
               </div>
                <div style={{ wordBreak: 'break-all' }}>{chunk}</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', height: '40px' }}>
-                {[1, 2, 3, 4, 5, 6].map((n) => (
+                <Image src={`/ui1.svg`} alt={`reply button (doesn't work)`} width={18} height={18} />
+                <a href={`https://twitter.com/intent/tweet?text=+RT+@${encodeURIComponent(author)}:+"${encodeURIComponent(chunk.slice(0, 100))}…"+on+%23twizora+twizora.mitori.me`} target="_blank" rel="noopener noreferrer">
+                  <Image src={`/ui2.svg`} alt={`retweet button (press to quote tweet @x.com)`} width={18} height={18} />
+                </a>
+                <Image src={`/ui3.svg`} alt={`fav button`} width={18} height={18} />
+                {[4, 5, 6].map((n) => (
                   <Image
                     key={n}
                     src={`/ui${n}.svg`}
