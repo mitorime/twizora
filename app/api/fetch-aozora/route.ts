@@ -29,7 +29,7 @@ export async function POST(req: NextRequest) {
     const body = await req.json()
     if (body.keyword) {
       const indices = searchAozoraData(body.keyword)
-      console.log('[API] 検索結果:', body.keyword, indices)
+      //console.log('[API] 検索結果:', body.keyword, indices)
       return NextResponse.json({ results: indices })
     }
 

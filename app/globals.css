@@ -5,7 +5,8 @@
   --field: #eff3f4;
   --system-text: #536471;
   --theme-color: #1d9bf0;
-  --theme-color-focus: #8ecdf7;
+  --theme-color-hover: #8ecdf7;
+  --theme-color-loading: #dbebfb;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -117,7 +118,7 @@ input[type="range"]::-moz-range-thumb {
   transition: 0.1s;
 }
 .search-button:hover {
-  background-color: var(--theme-color-focus);
+  background-color: var(--theme-color-hover);
 }
 
 .choose-book-wrap {
@@ -145,7 +146,7 @@ input[type="range"]::-moz-range-thumb {
 .loading {
   width: 36px;
   height: 36px;
-  border: 4px solid var(--border);
+  border: 4px solid var(--theme-color-loading);
   border-top: 4px solid var(--theme-color);
   border-radius: 50%;
   animation: spin 1s linear infinite;

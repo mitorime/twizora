@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 
 export default function Home() {
+  const [title, setTitle] = useState('')
   const [titleShorten, setTitleShorten] = useState('')
   const [showUserName, setShowUserName] = useState(false)
   const [author, setAuthor] = useState('')
@@ -63,6 +64,7 @@ export default function Home() {
     const data = await res.json()
     const chunks = data.text.match(/[\s\S]{1,140}/g) || []
     setTextChunks(chunks)
+    setTitle(data.title)
     if (data.title.length > 16) {
       setTitleShorten(data.title.slice(0, 16) + '…')
       setShowUserName(false)
@@ -186,7 +188,7 @@ export default function Home() {
                <div style={{ wordBreak: 'break-all' }}>{chunk}</div>
               <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '8px', height: '40px' }}>
                 <Image src={`/ui1.svg`} alt={`reply button (doesn't work)`} width={18} height={18} />
-                <a href={`https://twitter.com/intent/tweet?text=+RT+@${encodeURIComponent(author)}:+"${encodeURIComponent(chunk.slice(0, 100))}…"+on+%23twizora+twizora.mitori.me`} target="_blank" rel="noopener noreferrer">
+                <a href={`https://twitter.com/intent/tweet?text=+RT+@${encodeURIComponent(author)}:+"${encodeURIComponent(chunk.slice(0, 100))}…"+『${encodeURIComponent(title)}』on+%23twizora+twizora.mitori.me`} target="_blank" rel="noopener noreferrer">
                   <Image src={`/ui2.svg`} alt={`retweet button (press to quote tweet @x.com)`} width={18} height={18} />
                 </a>
                 <Image src={`/ui3.svg`} alt={`fav button`} width={18} height={18} />
