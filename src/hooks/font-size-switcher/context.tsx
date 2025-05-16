@@ -26,7 +26,7 @@ export function useFontSize() {
   }
 
   const getFontAndIconSizeValue = () => {
-    const fontSizes = [12, 2, 12.6, 13.4, 14.5];
+    const fontSizes = [12.2, 12.6, 13.4, 14.5];
     const iconSizes = [37, 38, 39, 40];
 
     return {
