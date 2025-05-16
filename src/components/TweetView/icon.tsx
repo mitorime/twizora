@@ -1,19 +1,22 @@
+'use client';
+
+import { useFontSize } from "@/src/hooks/font-size-switcher/context";
 import Image from "next/image"
 
 interface TweetIconProps {
   isTerminal?: boolean;
-  width: number;
-  height: number;
 }
 
-export const TweetIcon = ({ isTerminal, width, height }: TweetIconProps) => {
+export const TweetIcon = ({ isTerminal }: TweetIconProps) => {
+  const { getFontAndIconSizeValue } = useFontSize();
+  const { icon } = getFontAndIconSizeValue();
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', alignItems: 'center' }}>
       <Image
         src="/icon.png"
         alt="アイコン"
-        width={`${width}`}
-        height={`${height}`}
+        width={`${icon}`}
+        height={`${icon}`}
         style={{ borderRadius: '20px' }}
       />
       {!isTerminal && (

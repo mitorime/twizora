@@ -1,5 +1,6 @@
 import { TweetView } from "@/src/components/TweetView";
 import { fetchBook } from "@/src/service/aozora/client";
+import { FontSizeSwitcher } from "@/src/components/FontSizeSwitcher";
 
 export default async function Page({ params }: {
   params: Promise<{
@@ -12,10 +13,13 @@ export default async function Page({ params }: {
   const chunks = book.text.match(/[\s\S]{1,140}/g) || []
 
   return (
-    <div style={{ marginTop: '2rem', fontSize: `${15}px`, width: '100%' }}>
+    <>
+      <FontSizeSwitcher />
+      <div style={{ marginTop: '2rem', fontSize: `${15}px`, width: '100%' }}>
       {chunks.map((chunk, idx) => (
         <TweetView title={book.title} author={book.author} userId={book.authorRomaji.replace(/[ ,=.']/g, '').slice(0, 11)} content={chunk} date={book.date} key={idx}/>
       ))}
     </div>
+    </>
   )
 }
