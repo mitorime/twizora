@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import "./globals.css"
+import { SearchBox } from "../components/SearchBox";
 
 export const metadata: Metadata = {
   title: '青空文庫をTwitterっぽく表示するやつ',
@@ -38,7 +39,14 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
-        {children}
+        <main className='main'>
+          <div className='screen'>
+            <h1 style={{ padding: '12px 0 0' }}>twizora</h1>
+            <p className='user-name' style={{ padding: '0 0 12px' }}>青空文庫を Twitter っぽく表示するやつ</p>
+            <SearchBox />
+            {children}
+          </div>
+        </main>
       </body>
     </html>
   )
