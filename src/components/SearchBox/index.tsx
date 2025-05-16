@@ -17,7 +17,7 @@ export const SearchBox = () => {
         className='search-field'
       />
       <button
-        onClick={() => router.push(`search?q=${keyword}`)}
+        onClick={() => router.push(`/search?q=${keyword}`)}
         className='search-button'
         style={{ lineHeight: '1', paddingTop: '0.5em', paddingBottom: '0.5em' }}
         disabled={keyword.length === 0}
