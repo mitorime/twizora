@@ -46,10 +46,10 @@ export default function RootLayout({
         <main className='main'>
           <FontSizeProvider>
             <div className='screen'>
-            <h1 style={{ padding: '12px 0 0' }}>twizora</h1>
-            <p className='user-name' style={{ padding: '0 0 12px' }}>青空文庫を Twitter っぽく表示するやつ</p>
-            <SearchBox />
-            {children}
+              <h1 style={{ padding: '12px 0 0' }}>twizora</h1>
+              <p className='user-name' style={{ padding: '0 0 12px' }}>青空文庫を Twitter っぽく表示するやつ</p>
+              <SearchBox />
+              {children}
             </div>
           </FontSizeProvider>
         </main>
