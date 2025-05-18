@@ -9,7 +9,7 @@ interface SearchPageQuery {
 
 export default async function Page({ searchParams }: SearchPageQuery) {
   const { q: query } = await searchParams;
-  const results = searchBooks(query);
+  const results = query ? searchBooks(query) : [];
 
   return (
     <>
