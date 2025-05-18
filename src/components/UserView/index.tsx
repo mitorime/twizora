@@ -1,4 +1,4 @@
-import { Book } from "@/src/service/aozora/client"
+import { Book } from "@/src/service/aozora/types"
 import Image from "next/image"
 import Link from "next/link"
 

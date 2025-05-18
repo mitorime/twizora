@@ -1,15 +1,6 @@
 import aozoraData from '@/data/aozora_books.json'
 import iconv from 'iconv-lite'
-
-export interface Book {
-  authorId: number;
-  author: string;
-  bookId: number;
-  book: string;
-  translator: string;
-  status: string;
-  since: string;
-}
+import { Book } from './types'
 
 export const searchBooks = (keyword: string): Book[] => {
   const lowerKeyword = keyword.toLowerCase()
