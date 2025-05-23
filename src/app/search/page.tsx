@@ -2,13 +2,13 @@ import { UserView } from "@/src/components/UserView";
 import { searchBooks } from "@/src/service/aozora/client";
 
 interface SearchPageQuery {
-  searchParams: {
-    q: string
+  searchParams?: {
+    q?: string
   }
 }
 
 export default async function Page({ searchParams }: SearchPageQuery) {
-  const { q: query } = await searchParams;
+  const query = searchParams?.q ?? "";
   const results = query ? searchBooks(query) : [];
 
   return (
