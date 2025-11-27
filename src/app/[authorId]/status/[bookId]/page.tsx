@@ -3,11 +3,13 @@ import { TweetView } from "@/src/components/TweetView";
 import { fetchBook } from "@/src/service/aozora/client";
 import { notFound } from "next/navigation";
 
-export default async function Page({ params }: {
-  params: Promise<{
-    authorId: string;
-    bookId: string;
-  }>
+export default async function Page({
+  params,
+}: {
+  params: {
+    authorId: string
+    bookId: string
+  }
 }) {
 
   try {
