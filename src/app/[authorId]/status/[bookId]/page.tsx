@@ -3,20 +3,19 @@ import { TweetView } from "@/src/components/TweetView";
 import { fetchBook } from "@/src/service/aozora/client";
 import { notFound } from "next/navigation";
 
-export default async function Page({
-  params,
-}: {
+interface BookPageProps {
   params: {
     authorId: string
     bookId: string
   }
-}) {
-
-  try {
+}
+export default async function Page({
+  params,
+}: BookPageProps) {
+    try {
     const { authorId, bookId } = await params;
     const book = await fetchBook(bookId, authorId);
-    const chunks = book.text.match(/[\s\S]{1,140}/g) || []
-
+    const chunks = book.text.match(/[\s\S]{1,140}/g) || [];
     return (
       <>
         <FontSizeSwitcher />
@@ -31,3 +30,4 @@ export default async function Page({
     notFound();
   }
 }
+
